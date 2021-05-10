@@ -1,0 +1,78 @@
+<?php
+
+namespace DummyNamespace;
+
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Api\{{ model }}StoreRequest;
+use App\Http\Requests\Api\{{ model }}UpdateRequest;
+use {{ namespacedModel }};
+use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
+use App\Http\Resources\{{ model }}Resource;
+use App\Http\Resources\{{ model }}Collection;
+
+class DummyClass extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @param Request $request
+     * @return {{ model }}Collection
+     */
+    public function index(Request $request): {{ model }}Collection
+    {
+        return new {{ model }}Collection({{ model }}::all());
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param {{ model }}StoreRequest $request
+     * @return {{ model }}Resource
+     */
+    public function store({{ model }}StoreRequest $request): {{ model }}Resource
+    {
+        $requestData = $request->all();
+        ${{ modelVariable }} = {{ model }}::create($requestData);
+        return (new {{ model }}Resource(${{ modelVariable }}))->setMessage(trans('laravel-restify::messages.create', ['module' => '{{ model }}']));
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param {{ model }} ${{ modelVariable }}
+     * @return {{ model }}Resource
+     */
+    public function show({{ model }} ${{ modelVariable }}): {{ model }}Resource
+    {
+        return new {{ model }}Resource(${{ modelVariable }});
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param {{ model }}UpdateRequest $request
+     * @param {{ model }} ${{ modelVariable }}
+     * @return {{ model }}Resource
+     */
+    public function update({{ model }}UpdateRequest $request, {{ model }} ${{ modelVariable }}): {{ model }}Resource
+    {
+        $requestData = $request->all();
+        ${{ modelVariable }}->update($requestData);
+        return (new {{ model }}Resource(${{ modelVariable }}))->setMessage(trans('laravel-restify::messages.update', ['module' => '{{ model }}']));
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param {{ model }} ${{ modelVariable }}
+     * @return JsonResponse
+     */
+    public function destroy({{ model }} ${{ modelVariable }}): JsonResponse
+    {
+        ${{ modelVariable }}->delete();
+        return api_response([
+            'message' => trans('messages.delete', ['module' => '{{ model }}']),
+        ]);
+    }
+}

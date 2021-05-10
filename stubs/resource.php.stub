@@ -1,0 +1,99 @@
+<?php
+
+namespace DummyNamespace;
+
+use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\JsonResource;
+
+class DummyClass extends JsonResource
+{
+    /**
+     * @var bool
+     */
+    protected bool $success = true;
+
+    /**
+     * @var string|null
+     */
+    protected ?string $message = null;
+
+    /**
+     * @var array|null
+     */
+    protected ?array $meta = null;
+
+    /**
+     * @var array|null
+     */
+    protected ?array $errors = null;
+
+    /**
+     * @param bool $success
+     * @return {{ model }}Resource
+     */
+    public function setSuccess(bool $success): {{ model }}Resource
+    {
+        $this->success = $success;
+        return $this;
+    }
+
+    /**
+     * @param string|null $message
+     * @return {{ model }}Resource
+     */
+    public function setMessage(?string $message): {{ model }}Resource
+    {
+        $this->message = $message;
+        return $this;
+    }
+
+    /**
+     * @param array|null $meta
+     * @return {{ model }}Resource
+     */
+    public function setMeta(?array $meta): {{ model }}Resource
+    {
+        $this->meta = $meta;
+        return $this;
+    }
+
+    /**
+     * @param array|null $errors
+     * @return {{ model }}Resource
+     */
+    public function setErrors(?array $errors): {{ model }}Resource
+    {
+        $this->errors = $errors;
+        return $this;
+    }
+
+    /**
+     * Transform the resource into an array.
+     *
+     * @param Request $request
+     * @return array
+     */
+    public function toArray($request): array
+    {
+        // return parent::toArray($request);
+        return [
+            {{columns}}
+        ];
+    }
+
+    /**
+     * Get additional data that should be returned with the resource array.
+     *
+     * @param Request $request
+     * @return array
+     */
+    public function with($request): array
+    {
+        return [
+            'success' => $this->success,
+            'message' => $this->message,
+            'meta' => $this->meta,
+            'errors' => $this->errors
+        ];
+    }
+}

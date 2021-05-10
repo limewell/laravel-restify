@@ -1,0 +1,62 @@
+{
+    "name": "bhavingajjar/laravel-restify",
+    "description": "a laravel REST api generator with API Resources",
+    "keywords": [
+        "bhavingajjar",
+        "laravel-restify",
+        "laravel-api-generator",
+        "laravel-api-resources",
+        "api generator",
+        "crud",
+        "rest",
+        "api"
+    ],
+    "homepage": "https://github.com/bhavingajjar/laravel-restify",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Bhavin Gajjar",
+            "email": "gajjarbhavin22@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.4|^8.0",
+        "illuminate/support": "^8.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^6.0",
+        "phpunit/phpunit": "^9.0"
+    },
+    "autoload": {
+        "files": [
+            "src/Helpers/helpers.php"
+        ],
+        "psr-4": {
+            "BhavinGajjar\\LaravelRestify\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "BhavinGajjar\\LaravelRestify\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "BhavinGajjar\\LaravelRestify\\LaravelRestifyServiceProvider"
+            ],
+            "aliases": {
+                "LaravelRestify": "BhavinGajjar\\LaravelRestify\\LaravelRestifyFacade"
+            }
+        }
+    }
+}
