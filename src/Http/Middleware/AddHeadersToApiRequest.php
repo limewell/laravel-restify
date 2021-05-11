@@ -5,7 +5,7 @@ namespace BhavinGajjar\LaravelRestify\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 
-class AddHeadersToRequest
+class AddHeadersToApiRequest
 {
     /**
      * Handle an incoming request.

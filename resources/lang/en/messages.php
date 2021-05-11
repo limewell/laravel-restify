@@ -7,7 +7,7 @@ return [
     | Restify Language Lines
     |--------------------------------------------------------------------------
     |
-    | The following language lines are uses in restify rest api generate.
+    | The following language lines are uses in restify rest api package.
     |
     */
 

@@ -9,7 +9,7 @@ use BhavinGajjar\LaravelRestify\Console\Commands\{GenerateRestify,
     MakeRestifyRequestCommand,
     MakeRestifyResourceCommand
 };
-use BhavinGajjar\LaravelRestify\Http\Middleware\AddHeadersToRequest;
+use BhavinGajjar\LaravelRestify\Http\Middleware\AddHeadersToApiRequest;
 use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Route;
@@ -25,7 +25,7 @@ class LaravelRestifyServiceProvider extends ServiceProvider
     {
         /*Register Middleware*/
         $router = $this->app->make(Router::class);
-        $router->prependMiddlewareToGroup('api', AddHeadersToRequest::class);
+        $router->prependMiddlewareToGroup('api', AddHeadersToApiRequest::class);
         /*Register Middleware*/
 
         /*

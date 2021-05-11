@@ -71,7 +71,7 @@ class DummyClass extends Controller
     public function destroy({{ model }} ${{ modelVariable }}): JsonResponse
     {
         ${{ modelVariable }}->delete();
-        return api_response([
+        return restify_api_response([
             'message' => trans('messages.delete', ['module' => '{{ model }}']),
         ]);
     }
