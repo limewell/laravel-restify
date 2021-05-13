@@ -1,6 +1,6 @@
 <?php
 
-namespace BhavinGajjar\LaravelRestify\Models;
+namespace Limewell\LaravelRestify\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;

@@ -1,15 +1,15 @@
 <?php
 
 /**
- *  This file is config file for laravel-restify
- *  https://github.com/bhavingajjar/laravel-restify
+ *  This is config file for laravel-restify
+ *  https://github.com/limewell/laravel-restify
  *
  *  MIT License
  *
- *  Copyright (c) Bhavin Gajjar
+ *  Copyright (c) Limewell
  *
  *  You may obtain a copy of the License at:
- *  https://github.com/bhavingajjar/laravel-restify/blob/master/LICENSE.md
+ *  https://github.com/limewell/laravel-restify/blob/master/LICENSE.md
  */
 
 return [

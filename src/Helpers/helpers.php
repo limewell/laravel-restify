@@ -3,7 +3,12 @@
 use Illuminate\Http\JsonResponse;
 
 if (!function_exists('restify_api_response')) {
-    function restify_api_response(array $args, $status = 200): JsonResponse
+    /**
+     * @param array $args
+     * @param int $status
+     * @return JsonResponse
+     */
+    function restify_api_response(array $args, int $status = 200): JsonResponse
     {
         extract($args);
         return response()->json([

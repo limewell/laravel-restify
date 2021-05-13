@@ -1,6 +1,6 @@
 <?php
 
-namespace BhavinGajjar\LaravelRestify\Console\Commands;
+namespace Limewell\LaravelRestify\Console\Commands;
 
 use Illuminate\Console\Command;
 

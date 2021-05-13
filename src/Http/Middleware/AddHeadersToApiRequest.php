@@ -1,6 +1,6 @@
 <?php
 
-namespace BhavinGajjar\LaravelRestify\Http\Middleware;
+namespace Limewell\LaravelRestify\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;

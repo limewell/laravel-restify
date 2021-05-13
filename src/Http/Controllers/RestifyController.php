@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Limewell\LaravelRestify\Http\Controller;
 
-use BhavinGajjar\LaravelRestify\Models\Restify;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Limewell\LaravelRestify\Models\Restify;
 
 class RestifyController extends Controller
 {

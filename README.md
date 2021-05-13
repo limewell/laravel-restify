@@ -2,9 +2,9 @@
 
 # Laravel API Generator With Resources
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/bhavingajjar/laravel-restify.svg?style=flat-square)](https://packagist.org/packages/bhavingajjar/laravel-restify)
-[![Total Downloads](https://img.shields.io/packagist/dt/bhavingajjar/laravel-restify.svg?style=flat-square)](https://packagist.org/packages/bhavingajjar/laravel-restify)
-![GitHub Actions](https://github.com/bhavingajjar/laravel-restify/actions/workflows/main.yml/badge.svg)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/limewell/laravel-restify.svg?style=flat-square)](https://packagist.org/packages/limewell/laravel-restify)
+[![Total Downloads](https://img.shields.io/packagist/dt/limewell/laravel-restify.svg?style=flat-square)](https://packagist.org/packages/limewell/laravel-restify)
+![GitHub Actions](https://github.com/limewell/laravel-restify/actions/workflows/main.yml/badge.svg)
 
 This package is used to generate laravel api with Resources
 
@@ -13,13 +13,17 @@ This package is used to generate laravel api with Resources
 You can install the package via composer:
 
 ```bash
-composer require bhavingajjar/laravel-restify
+composer require limewell/laravel-restify
 ```
 
 ## Usage
 
 ```php
-// Usage description here
+//Install restify
+php artisan restify:install
+
+//Generate restify crud for model
+php artisan restify:generate --model=User
 ```
 
 ### Testing
@@ -36,13 +40,10 @@ Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recen
 
 Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
-### Security
-
-If you discover any security related issues, please email gajjarbhavin22@gmail.com instead of using the issue tracker.
-
 ## Credits
 
 - [Bhavin Gajjar](https://github.com/bhavingajjar)
+- [Dipesh Sukhia](https://github.com/dipeshsukhia)
 - [All Contributors](../../contributors)
 
 ## License

@@ -1,8 +1,9 @@
 {
-    "name": "bhavingajjar/laravel-restify",
+    "name": "limewell/laravel-restify",
     "description": "a laravel REST api generator with API Resources",
     "keywords": [
         "bhavingajjar",
+        "dipeshsukhia",
         "laravel-restify",
         "laravel-api-generator",
         "laravel-api-resources",
@@ -11,13 +12,18 @@
         "rest",
         "api"
     ],
-    "homepage": "https://github.com/bhavingajjar/laravel-restify",
+    "homepage": "https://github.com/limewell/laravel-restify",
     "license": "MIT",
     "type": "library",
     "authors": [
         {
             "name": "Bhavin Gajjar",
             "email": "gajjarbhavin22@gmail.com",
+            "role": "Developer"
+        },
+        {
+            "name": "Dipesh Sukhia",
+            "email": "dipesh.sukhia@gmail.com",
             "role": "Developer"
         }
     ],
@@ -34,12 +40,12 @@
             "src/Helpers/helpers.php"
         ],
         "psr-4": {
-            "BhavinGajjar\\LaravelRestify\\": "src"
+            "Limewell\\LaravelRestify\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "BhavinGajjar\\LaravelRestify\\Tests\\": "tests"
+            "Limewell\\LaravelRestify\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -52,10 +58,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "BhavinGajjar\\LaravelRestify\\LaravelRestifyServiceProvider"
+                "Limewell\\LaravelRestify\\LaravelRestifyServiceProvider"
             ],
             "aliases": {
-                "LaravelRestify": "BhavinGajjar\\LaravelRestify\\LaravelRestifyFacade"
+                "LaravelRestify": "Limewell\\LaravelRestify\\LaravelRestifyFacade"
             }
         }
     }

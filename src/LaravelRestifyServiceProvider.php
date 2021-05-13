@@ -1,19 +1,19 @@
 <?php
 
-namespace BhavinGajjar\LaravelRestify;
+namespace Limewell\LaravelRestify;
 
-use BhavinGajjar\LaravelRestify\Console\Commands\{GenerateRestify,
+use Illuminate\Contracts\Container\BindingResolutionException;
+use Illuminate\Routing\Router;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\ServiceProvider;
+use Limewell\LaravelRestify\Console\Commands\{GenerateRestify,
     InstallRestify,
     MakeRestifyCollectionCommand,
     MakeRestifyControllerCommand,
     MakeRestifyRequestCommand,
     MakeRestifyResourceCommand
 };
-use BhavinGajjar\LaravelRestify\Http\Middleware\AddHeadersToApiRequest;
-use Illuminate\Contracts\Container\BindingResolutionException;
-use Illuminate\Routing\Router;
-use Illuminate\Support\Facades\Route;
-use Illuminate\Support\ServiceProvider;
+use Limewell\LaravelRestify\Http\Middleware\AddHeadersToApiRequest;
 
 class LaravelRestifyServiceProvider extends ServiceProvider
 {

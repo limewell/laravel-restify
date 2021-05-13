@@ -1,6 +1,6 @@
 <?php
 
-namespace BhavinGajjar\LaravelRestify\Console\Commands;
+namespace Limewell\LaravelRestify\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
@@ -71,7 +71,7 @@ class InstallRestify extends Command
     private function publishConfiguration($forcePublish = false)
     {
         $params = [
-            '--provider' => "BhavinGajjar\LaravelRestify\LaravelRestifyServiceProvider",
+            '--provider' => "Limewell\LaravelRestify\LaravelRestifyServiceProvider",
             '--tag' => "config"
         ];
         if ($forcePublish === true) {

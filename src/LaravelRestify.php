@@ -1,6 +1,6 @@
 <?php
 
-namespace BhavinGajjar\LaravelRestify;
+namespace Limewell\LaravelRestify;
 
 class LaravelRestify
 {
