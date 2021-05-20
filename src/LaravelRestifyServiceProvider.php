@@ -3,7 +3,9 @@
 namespace Limewell\LaravelRestify;
 
 use Illuminate\Contracts\Container\BindingResolutionException;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Routing\Router;
+use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Limewell\LaravelRestify\Console\Commands\{GenerateRestify,
@@ -35,6 +37,21 @@ class LaravelRestifyServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'laravel-restify');
         $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
         $this->registerRoutes();
+
+        // restify Json response for api
+        if(!Response::hasMacro('restifyJson')){
+            Response::macro('restifyJson', function (array $args, int $status = 200):JsonResponse
+            {
+                extract($args);
+                return Response::json([
+                    'data' => $data ?? [],
+                    'success' => $success ?? true,
+                    'message' => $message ?? null,
+                    'meta' => $meta ?? null,
+                    'errors' => $errors ?? null,
+                ], $status);
+            });
+        }
 
         if ($this->app->runningInConsole()) {
             $this->publishes([
