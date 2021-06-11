@@ -3,8 +3,10 @@
 namespace Limewell\LaravelRestify;
 
 use Illuminate\Contracts\Container\BindingResolutionException;
+use Illuminate\Contracts\Routing\BindingRegistrar;
+use Illuminate\Contracts\Routing\ResponseFactory;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Routing\Router;
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Limewell\LaravelRestify\Console\Commands\{GenerateRestify,
     InstallRestify,
@@ -35,6 +37,7 @@ class LaravelRestifyServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'laravel-restify');
         $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
         $this->registerRoutes();
+        $this->registerMacros();
 
         if ($this->app->runningInConsole()) {
             $this->publishes([
@@ -74,11 +77,32 @@ class LaravelRestifyServiceProvider extends ServiceProvider
     }
 
     /**
-     *
+     * @throws BindingResolutionException
+     */
+    protected function registerMacros()
+    {
+        $response = $this->app->make(ResponseFactory::class);
+        if (!$response->hasMacro('restifyJson')) {
+            $response->macro('restifyJson', function (array $args, int $status = 200) use ($response): JsonResponse {
+                extract($args);
+                return $response->json([
+                    'data' => $data ?? [],
+                    'success' => $success ?? true,
+                    'message' => $message ?? null,
+                    'meta' => $meta ?? null,
+                    'errors' => $errors ?? null,
+                ], $status);
+            });
+        }
+    }
+
+    /**
+     * @throws BindingResolutionException
      */
     protected function registerRoutes()
     {
-        Route::group($this->routeConfiguration(), function () {
+        $route = $this->app->make(BindingRegistrar::class);
+        $route->group($this->routeConfiguration(), function () {
             $this->loadRoutesFrom(__DIR__ . '/../routes/web.php');
         });
     }

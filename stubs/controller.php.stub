@@ -71,7 +71,7 @@ class DummyClass extends Controller
     public function destroy({{ model }} ${{ modelVariable }}): JsonResponse
     {
         ${{ modelVariable }}->delete();
-        return restify_api_response([
+        return response()->restifyJson([
             'message' => trans('laravel-restify::messages.delete', ['module' => '{{ model }}']),
         ]);
     }
