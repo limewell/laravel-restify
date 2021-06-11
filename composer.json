@@ -36,9 +36,6 @@
         "phpunit/phpunit": "^9.0"
     },
     "autoload": {
-        "files": [
-            "src/Helpers/helpers.php"
-        ],
         "psr-4": {
             "Limewell\\LaravelRestify\\": "src"
         }
