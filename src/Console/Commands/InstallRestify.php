@@ -60,7 +60,7 @@ class InstallRestify extends Command
 
     private function configExists(): bool
     {
-        return File::exists(config_path('laravel-restify.php'));
+        return File::exists(config_path('restify.php'));
     }
 
     private function shouldOverwriteConfig(): bool

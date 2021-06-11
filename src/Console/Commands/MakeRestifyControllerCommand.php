@@ -40,7 +40,7 @@ class MakeRestifyControllerCommand extends GeneratorCommand
     /**
      * @var string
      */
-    private string $stub = 'controller.php.stub';
+    private string $stub = 'controller.stub';
 
     /**
      *
@@ -55,11 +55,9 @@ class MakeRestifyControllerCommand extends GeneratorCommand
      */
     protected function getStub(): string
     {
-        if (file_exists($stubPath = base_path("stubs/vendor/laravel-restify/$this->stub"))) {
-            return $stubPath;
-        } else {
-            return __DIR__ . "/../../../stubs/$this->stub";
-        }
+        return file_exists($customPath = $this->laravel->basePath("stubs/vendor/restify/$this->stub"))
+            ? $customPath
+            : __DIR__ . "/../../../stubs/$this->stub";
     }
 
     protected function getDefaultNamespace($rootNamespace): string

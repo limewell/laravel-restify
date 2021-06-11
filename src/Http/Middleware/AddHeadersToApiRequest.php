@@ -16,7 +16,7 @@ class AddHeadersToApiRequest
      */
     public function handle(Request $request, Closure $next)
     {
-        if (config('laravel-restify.json_response') === true) {
+        if (config('restify.json_response') === true) {
             $request->headers->set('Accept', 'application/json');
         }
 

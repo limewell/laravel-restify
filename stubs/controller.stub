@@ -34,7 +34,7 @@ class DummyClass extends Controller
     {
         $requestData = $request->all();
         ${{ modelVariable }} = {{ model }}::create($requestData);
-        return (new {{ model }}Resource(${{ modelVariable }}))->setMessage(trans('laravel-restify::messages.create', ['module' => '{{ model }}']));
+        return (new {{ model }}Resource(${{ modelVariable }}))->setMessage(trans('restify::messages.create', ['module' => '{{ model }}']));
     }
 
     /**
@@ -59,7 +59,7 @@ class DummyClass extends Controller
     {
         $requestData = $request->all();
         ${{ modelVariable }}->update($requestData);
-        return (new {{ model }}Resource(${{ modelVariable }}))->setMessage(trans('laravel-restify::messages.update', ['module' => '{{ model }}']));
+        return (new {{ model }}Resource(${{ modelVariable }}))->setMessage(trans('restify::messages.update', ['module' => '{{ model }}']));
     }
 
     /**
@@ -72,7 +72,7 @@ class DummyClass extends Controller
     {
         ${{ modelVariable }}->delete();
         return restify_api_response([
-            'message' => trans('laravel-restify::messages.delete', ['module' => '{{ model }}']),
+            'message' => trans('restify::messages.delete', ['module' => '{{ model }}']),
         ]);
     }
 }

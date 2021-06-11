@@ -31,34 +31,34 @@ class LaravelRestifyServiceProvider extends ServiceProvider
         /*
          * Optional methods to load your package assets
          */
-        $this->loadTranslationsFrom(__DIR__ . '/../resources/lang', 'laravel-restify');
-        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'laravel-restify');
+        $this->loadTranslationsFrom(__DIR__ . '/../resources/lang', 'restify');
+        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'restify');
         $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
         $this->registerRoutes();
 
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__ . '/../config/config.php' => config_path('laravel-restify.php'),
+                __DIR__ . '/../config/config.php' => config_path('restify.php'),
             ], 'config');
 
             // Publishing the views.
             $this->publishes([
-                __DIR__ . '/../resources/views' => resource_path('views/vendor/laravel-restify'),
+                __DIR__ . '/../resources/views' => resource_path('views/vendor/restify'),
             ], 'views');
 
             // Publishing assets.
             $this->publishes([
-                __DIR__ . '/../resources/assets' => public_path('vendor/laravel-restify'),
+                __DIR__ . '/../resources/assets' => public_path('vendor/restify'),
             ], 'assets');
 
             // Publishing the translation files.
             $this->publishes([
-                __DIR__ . '/../resources/lang' => resource_path('lang/vendor/laravel-restify'),
+                __DIR__ . '/../resources/lang' => resource_path('lang/vendor/restify'),
             ], 'lang');
 
             // Publishing the stub files.
             $this->publishes([
-                __DIR__ . '/../stubs' => base_path('stubs/vendor/laravel-restify'),
+                __DIR__ . '/../stubs' => base_path('stubs/vendor/restify'),
             ], 'stubs');
 
             // Registering package commands.
@@ -89,8 +89,8 @@ class LaravelRestifyServiceProvider extends ServiceProvider
     protected function routeConfiguration(): array
     {
         return [
-            'prefix' => config('laravel-restify.prefix'),
-            'middleware' => config('laravel-restify.middleware'),
+            'prefix' => config('restify.prefix'),
+            'middleware' => config('restify.middleware'),
         ];
     }
 
@@ -100,10 +100,10 @@ class LaravelRestifyServiceProvider extends ServiceProvider
     public function register()
     {
         // Automatically apply the package configuration
-        $this->mergeConfigFrom(__DIR__ . '/../config/config.php', 'laravel-restify');
+        $this->mergeConfigFrom(__DIR__ . '/../config/config.php', 'restify');
 
         // Register the main class to use with the facade
-        $this->app->singleton('laravel-restify', function () {
+        $this->app->singleton('restify', function () {
             return new LaravelRestify;
         });
     }

@@ -58,7 +58,7 @@ class GenerateRestify extends Command
     {
         $this->setModel($this->option('model') ?? '');
         if (empty($this->getModel())) {
-            $this->setModel($this->ask('Enter Model Name'));
+            $this->setModel($this->ask('Enter Model Name:'));
         }
     }
 
@@ -72,7 +72,7 @@ class GenerateRestify extends Command
         //constructor
         $this->construct_facade();
 
-        $model_directory_path = config('laravel-restify.model_directory_path');
+        $model_directory_path = config('restify.model_directory_path');
 
         if (!file_exists($modelPath = base_path("$model_directory_path/$this->model.php"))) {
             $this->error('Model does not exist at ' . $modelPath);

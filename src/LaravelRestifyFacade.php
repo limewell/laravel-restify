@@ -13,6 +13,6 @@ class LaravelRestifyFacade extends Facade
      */
     protected static function getFacadeAccessor(): string
     {
-        return 'laravel-restify';
+        return 'restify';
     }
 }
