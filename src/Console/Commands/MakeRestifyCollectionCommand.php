@@ -60,6 +60,10 @@ class MakeRestifyCollectionCommand extends GeneratorCommand
             : __DIR__ . "/../../../stubs/$this->stub";
     }
 
+    /**
+     * @param string $rootNamespace
+     * @return string
+     */
     protected function getDefaultNamespace($rootNamespace): string
     {
         return $rootNamespace . '\Http\Resources';

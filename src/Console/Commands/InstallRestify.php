@@ -58,17 +58,26 @@ class InstallRestify extends Command
         return 0;
     }
 
+    /**
+     * @return bool
+     */
     private function configExists(): bool
     {
         return File::exists(config_path('restify.php'));
     }
 
+    /**
+     * @return bool
+     */
     private function shouldOverwriteConfig(): bool
     {
         return $this->confirm('Config file already exists. Do you want to overwrite it?', false);
     }
 
-    private function publishConfiguration($forcePublish = false)
+    /**
+     * @param false $forcePublish
+     */
+    private function publishConfiguration(bool $forcePublish = false)
     {
         $params = [
             '--provider' => "Limewell\LaravelRestify\LaravelRestifyServiceProvider",
