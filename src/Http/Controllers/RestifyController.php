@@ -1,8 +1,7 @@
 <?php
 
-namespace Limewell\LaravelRestify\Http\Controller;
+namespace Limewell\LaravelRestify\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Limewell\LaravelRestify\Models\Restify;
 
